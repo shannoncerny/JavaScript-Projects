@@ -14,3 +14,9 @@ function Function_3(){
     sentence += " a lot from this book!"; //concatenates the sentences
     document.getElementById("concatenate").innerHTML= sentence; //displays the concatenated sentences
 }
+
+function changeColor(){
+    if (document.getElementById("textbox_1").value==''){
+        document.getElementById("textbox_1").style.backgroundColor='lightseagreen';
+    }
+}
