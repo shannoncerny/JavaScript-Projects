@@ -15,3 +15,8 @@ var cat="Goose", dog="Murphy", lizard="Flint"; //creates and defines the variabl
 document.write(dog); //displays the value of the variable dog
 
 document.write(2 + 2) //solves the expression and returns result
+
+function My_First_Function(){
+    var string="This is the button text!";
+    document.getElementById("Button_Text").innerHTML=str;
+}
