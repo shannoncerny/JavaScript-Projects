@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>jQuery Assignment</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <button class="alert">Click</button>
+
+        <script>
+            $(document).ready(function() {
+                $("html").append(
+                    "<body>\
+                        <div id='container'>\
+                            <div id='inner'>\
+                                <h1>Basic jQuery</h1>\
+                                <p id='1'>Paragraph 1</p>\
+                                <p id='2'>Paragraph 2</p>\
+                                <p id='3'>Paragraph 3</p>\
+                            </div>\
+                        </div>\
+                    </body>"
+                );
+                $("#2").css({"color": "red"});
+                $("#3").click(function() {
+                    $('h1').hide();
+                });
+            });
+
+            $(document).ready(function(){
+                //sets up click behavior on all button elements with the alert class 
+                //that exist in the DOM when instruction was executed
+                $("button.alert").click(function() {
+                    console.log("A button with the alert class was clicked!");
+                });
+            });
+
+            $(document).ready(function() {
+                $("html").append( //adds following code into the html file
+                    "<p id='effect'>\
+                        Click to make next line slowly disappear\
+                    </p>\
+                    <p id='effect2'>\
+                        This is a sentence\
+                    </p>"
+                );
+                $("#effect").click(function() { //references id 'effect' to be clicked
+                    $("#effect2").hide("slow"); //slowly fades id 'effect2' to disappear
+                });
+            });
+        </script>
+
+    </body>
+</html>

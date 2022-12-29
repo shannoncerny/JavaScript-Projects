@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Elements Challenge</title>
+    </head>
+    <body>
+       
+        <h1>Document Object</h1>
+        <h2>Head Property</h2>
+
+        <p>The tag name of the first child element of the head element is:</p>
+        <p id="element"></p>
+
+        <script>
+            let tag = document.head.firstElementChild.tagName;
+            document.getElementById('element').innerHTML = tag;
+        </script>
+
+    </body>
+</html>
