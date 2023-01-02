@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="xml_example"></p>
+
+        <script>
+            var xml_parser, xml_document;
+
+            //creates text string
+            var movie = "<movie>"+
+                "<title>Avatar</title>"+
+                "<director>James Cameron</director>"+
+                "<starring>Zoe Saldana</starring>"+
+                "<year>2009</year>"+
+                "</movie>";
+
+                //creates XML DOM parser
+                xml_parser = new DOMParser();
+
+                //creates new XML DOM object using the text string
+                xml_document = xml_parser.parseFromString(movie,"text/xml");
+
+                document.getElementById("xml_example").innerHTML = 
+                xml_document.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+        </script>
+    </body>
+</html>

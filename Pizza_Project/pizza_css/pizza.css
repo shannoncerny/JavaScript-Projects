@@ -1,10 +1,28 @@
+/*smooth srolling*/
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: rgb(185, 252, 185);
+    opacity: 1;
+    transition: 1s opacity;
+}
+
+body.fade-out {
+    opacity: 0;
+    transition: none;
 }
 
 h1 {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(216, 125, 216);
+    text-align: center;
+    font-size: 4vw;
+    animation: myMove 1s;
+}
+
+h2 {
     text-align: center;
 }
 
@@ -22,6 +40,7 @@ div {
     width: 400px;
     height: 470px;
     margin: 10px auto;
+    
 }
 
 #frmMenu {
@@ -75,3 +94,129 @@ div {
     margin: 25px auto;
 }
 
+/*POPUP FORM STYLING*/
+
+/*button used to open contact form*/
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+}
+
+/*hide popup form by default*/
+.form-popup {
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    box-sizing: border-box;
+}
+
+.form-container {
+    max-width: 300px;
+    height: 300px;
+    margin-bottom: 30px;
+    padding: 10px;
+    background-color: white;
+}
+
+/*full-width input fields*/
+.form-container input[type=text] {
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+.form-container input[type=text]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.form-container .cancel {
+    background-color: salmon;
+}
+
+.form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+}
+
+/*h1 and contact form animation*/
+@keyframes myMove {
+    from {transform: translateX(-100%);}
+    to {transform: translateX(0%);}
+}
+.form-popup {
+    animation: myMove 1s;
+}
+
+/*zoom in and out animation*/
+@keyframes zoominoutsinglefeatured {
+    0% {
+        transform: scale(1,1);
+    }
+    50% {
+        transform: scale(1.2,1.2);
+    }
+    100% {
+        transform: scale(1,1);
+    }
+}
+
+/*IMAGE LINK TO WEBSITE ABT PIZZA*/
+.img-container {
+    animation: zoominoutsinglefeatured 5s forwards;
+}
+
+.img-container:hover {
+    opacity: .7;
+}
+
+/*AUTOMATIC SLIDESHOW*/
+#slideshow {
+    margin: 50px auto;
+    position: relative;
+    width: 240px;
+    height: 240px;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,.4);
+}
+
+#slideshow > div {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+}
+
+
+/*sticky contact form*/
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    right: 0;
+    background-color: lightcoral ;
+    padding: 50px;
+    font-size: 20px;
+}

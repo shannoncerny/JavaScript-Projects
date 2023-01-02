@@ -54,3 +54,21 @@ function getTopping(runningTotal,text1) {
     document.getElementById("showText").innerHTML=text1;
     document.getElementById("totalPrice").innerHTML = "<h3>Total: <strong>$"+runningTotal+".00"+"</strong></h3>";
 };
+
+//VALIDATE FORM FUNCTION
+function validateForm() {
+    let x = document.forms["frmContact"]["fname"].value;
+    if (x == "") {
+        alert("Please enter your information");
+        return false;
+    }
+}
+
+//CREATING POPUP FORM
+function openForm() {
+    document.getElementById('myForm').style.display = "block";
+}
+
+function closeForm() {
+    document.getElementById('myForm').style.display = "none";
+}

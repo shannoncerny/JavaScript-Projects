@@ -4,13 +4,35 @@
         <title>Pizza Drill Demo</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script src="pizza_js/pizza.js"defer></script>
         <link rel="stylesheet" type="text/css" href="pizza_css/pizza.css">
     </head>
 
     <body>
+
+        <script>
+            document.body.classList.add('fade-out');
+
+            window.addEventListener('DOMContentLoaded', () => {
+                document.body.classList.remove('fade-out');
+            });
+            
+            //automatic slideshow jQuery
+            $("#slideshow > div:gt(0)").hide();
+
+            setInterval(function () {
+                $('#slideshow > div:first')
+                .fadeOut(1000)
+                .next()
+                .fadeIn(1000)
+                .end()
+                .appendTo('#slideshow');
+            }, 3000);
+        </script>
+
         <div id="menuBG">
-            <h1 >Pizza Drill Tutorial</h1>
+            <h1 class="animation">Pizza Drill Tutorial</h1>
             <input id="btnOrder" type="button" onclick="getReceipt()"
                 value="Place Order">
             <form id="frmMenu">
@@ -66,6 +88,47 @@
                 </div>
             </form>
         </div>
+
+        <!--IMAGE LINK TO WEBSITE ABT PIZZA-->
+        <div class="img-container">
+            <a href="https://en.wikipedia.org/wiki/History_of_pizza" target="_blank">
+                <img src="pizza.jpg" alt="pizza">
+            </a>
+        </div>
+
+        <!--AUTOMATIC SLIDESHOW-->
+        <div id="slideshow">
+            <div>
+                <img src="pizza1.jpg" alt="pizza">
+            </div>
+            <div>
+                <img src="pizza2.jpg" alt="pizza">
+            </div>
+            <div>
+                <img src="pizza3.jpg" alt="pizza">
+            </div>
+        </div>
+
+        <!--CONTACT FORM-->
+        <div class="sticky">
+            <div class="form-popup" id="myForm">
+                <h2>Contact</h2>
+
+                <form name="frmContact" action="/action_page.php" onsubmit="return validateForm()" method="post" class="form-container">
+                    <label for="fname">First Name:</label><br>
+                    <input type="text" id="fname" name="fname"><br>
+                    <label for="lname">Last Name:</label><br>
+                    <input type="text" id="lname" name="lname"><br>
+                    <label for="phone_number">Phone Number:</label><br>
+                    <input type="text" id="phone_number" name="phone_number"><br>
+                    
+                    <button type="submit" class="btn">Submit</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </form>
+            </div>
+        </div>
     
+       
+        
     </body>
 </html>
